@@ -1,24 +1,25 @@
-name: Docker Image CI
+name: Docker CI with Gradle
 
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+
+permissions:
+  contents: read
 
 jobs:
-
   build:
 
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v3          
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v1
         with:
-            registry: ghcr.io
-            username: ${{ github.actor }}
-            password: ${{ secrets.DOCKER_TOKEN_CLASSIC }}
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.DOCKER_TOKEN_CLASSIC }}
 
       - name: Build and publish the Docker image
         run: |
