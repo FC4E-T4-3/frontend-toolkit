@@ -1,0 +1,27 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+            registry: ghcr.io
+            username: ${{ github.actor }}
+            password: ${{ secrets.DOCKER_TOKEN_CLASSIC }}
+
+      - name: Build and publish the Docker image
+        run: |
+          docker build -t ghcr.io/fc4e-t4-3/frontend-toolkit .
+          docker push ghcr.io/fc4e-t4-3/frontend-toolkit:latest
