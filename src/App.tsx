@@ -31,7 +31,7 @@ const typesenseInstantsearchAdapter = new TypesenseInstantSearchAdapter({
     apiKey: "xyz", // Be sure to use the search-only-api-key
     nodes: [
       {
-        host: "localhost",
+        host: "141.5.103.83",
         port: 8108,
         protocol: "http"
       }
@@ -102,14 +102,14 @@ type HitProps = {
 
 const getDescription = async (pid) => {
   console.log(pid);
-  let data = await fetch('http://localhost:8080/v1/desc/'+pid);
+  let data = await fetch('http://141.5.103.83/v1/desc/'+pid);
   let dataJson = await data.json();
   return dataJson;
 }
 
 const getValidation = async (pid) => {
   console.log(pid);
-  let data = await fetch('http://localhost:8080/v1/validation/'+pid);
+  let data = await fetch('http://141.5.103.83/v1/validation/'+pid);
   let dataJson = await data.json();
   return dataJson;
 }
