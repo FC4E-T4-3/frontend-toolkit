@@ -101,19 +101,16 @@ type HitProps = {
 };
 
 const getDescription = async (pid) => {
-  console.log(pid);
   let data = await fetch('http://141.5.103.83/v1/desc/'+pid);
   let dataJson = await data.json();
   return dataJson;
 }
 
 const getValidation = async (pid) => {
-  console.log(pid);
   let data = await fetch('http://141.5.103.83/v1/schema/'+pid);
   let dataJson = await data.json();
   return dataJson;
 }
-
 
 function Hit({ hit }: HitProps) {
   const [open, setOpen] = useState(false);
