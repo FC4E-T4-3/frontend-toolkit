@@ -18,7 +18,7 @@
     "react": "18.1.0",
     "react-bootstrap": "^2.8.0",
     "react-dom": "18.1.0",
-    "react-instantsearch-hooks-web": "6.42.0",
+    "react-instantsearch-hooks-web": "6.47.1",
     "react-json-tree": "^0.18.0",
     "react-json-view-lite": "^0.9.7",
     "typesense-instantsearch-adapter": "^2.7.0"
